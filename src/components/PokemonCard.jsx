@@ -15,6 +15,7 @@ const pokemonList = [
 const PokemonCard = () => {
   return (
     <div>
+      {/* Boucle sur le tableau pokémon pour les afficher dynamiquement */}
       {pokemonList.map((pokemon) => (
         <figure>
           {pokemon.imgSrc === undefined || pokemon.imgSrc === "" ? (
