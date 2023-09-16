@@ -24,10 +24,12 @@ const PokemonCard = () => {
           ) : (
             <img src={pokemon.imgSrc} alt={`Photo de ${pokemon.name}`} />
           )}
-          <figcaption>{`#${index + 1} Pokémon : ${
-            // chartAt(0) extrait la première lettre, toUpperCase() mettre la lettre en majuscule
-            pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-          }.`}</figcaption>
+          <figcaption>
+            {`#${index + 1} Pokémon : ${
+              // chartAt(0) extrait la première lettre, toUpperCase() mettre la lettre en majuscule
+              pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+            }.`}
+          </figcaption>
         </figure>
       ))}
     </div>
