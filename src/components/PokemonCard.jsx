@@ -24,7 +24,7 @@ const PokemonCard = () => {
           ) : (
             <img src={pokemon.imgSrc} alt={`Photo de ${pokemon.name}`} />
           )}
-          <figcaption>{`Pokémon ${index} : ${pokemon.name}`}</figcaption>
+          <figcaption>{`#${index + 1} Pokémon : ${pokemon.name}`}</figcaption>
         </figure>
       ))}
     </div>
