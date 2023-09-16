@@ -1,16 +1,3 @@
-// Style card
-const card = {
-  width: "200px",
-  padding: "1rem",
-  backgroundColor: "lightgreen",
-  borderRadius: "5px",
-  boxShadow: "0px 0px 5px gray",
-  color: "white",
-  fontSize: "1.6rem",
-  textAlign: "center",
-  textShadow: "0px 0px 5px gray",
-};
-
 // Component card
 const PokemonCard = () => {
   return (
