@@ -4,11 +4,12 @@ import PokemonCard from "./components/PokemonCard";
 function App() {
   return (
     <main>
-      // container title
+      {/* container title */}
       <div>
         <MyTitle />
       </div>
-      // container pokemon card
+
+      {/* container pokemon card */}
       <div>
         <PokemonCard />
       </div>
