@@ -18,6 +18,7 @@ const PokemonCard = () => {
       {/* Boucle sur le tableau pokémon pour les afficher dynamiquement */}
       {pokemonList.map((pokemon) => (
         <figure>
+          {/* Tenaire qui affiche "???"" si aucune image associée au pokémon */}
           {pokemon.imgSrc === undefined || pokemon.imgSrc === "" ? (
             <p>???</p>
           ) : (
