@@ -16,7 +16,7 @@ const PokemonCard = () => {
   return (
     <div>
       {/* Boucle sur le tableau pokémon pour les afficher dynamiquement */}
-      {pokemonList.map((pokemon) => (
+      {pokemonList.map((pokemon, index) => (
         <figure>
           {/* Tenaire qui affiche "???"" si aucune image associée au pokémon */}
           {pokemon.imgSrc === undefined || pokemon.imgSrc === "" ? (
@@ -24,7 +24,7 @@ const PokemonCard = () => {
           ) : (
             <img src={pokemon.imgSrc} alt={`Photo de ${pokemon.name}`} />
           )}
-          <figcaption>{`Pokémon : ${pokemon.name}`}</figcaption>
+          <figcaption>{`Pokémon ${index} : ${pokemon.name}`}</figcaption>
         </figure>
       ))}
     </div>
