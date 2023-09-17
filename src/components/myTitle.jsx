@@ -1,5 +1,5 @@
 const MyTitle = () => {
-    return <h1>Hello React</h1>;
-}
+  return <h1>Pokédex</h1>;
+};
 
 export default MyTitle;
