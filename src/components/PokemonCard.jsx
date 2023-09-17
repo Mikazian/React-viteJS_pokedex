@@ -1,30 +1,20 @@
 import React from "react";
 
-const pokemonList = [
-  {
-    name: "bulbizarre",
-    imgSrc:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    name: "mew",
-  },
-];
-
-// Composant de carte Pokemon
-const PokemonCard = () => {
+const PokemonCard = ({ pokemonName, pokemonImage }) => {
   return (
     <div>
-      {pokemonList.map((pokemon) => (
-        <figure>
-          {pokemon.imgSrc === undefined || pokemon.imgSrc === "" ? (
-            <p>???</p>
-          ) : (
-            <img src={pokemon.imgSrc} alt={`Photo de ${pokemon.name}`} />
-          )}
-          <figcaption>{`Pokémon : ${pokemon.name}`}</figcaption>
-        </figure>
-      ))}
+      <figure>
+        {pokemonImage === undefined || pokemonImage === "" ? (
+          <p>???</p>
+        ) : (
+          <img src={pokemonImage} alt={`Image ${pokemonName}`} />
+        )}
+        <figcaption>
+          {`Pokémon : ${
+            pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)
+          }`}
+        </figcaption>
+      </figure>
     </div>
   );
 };
