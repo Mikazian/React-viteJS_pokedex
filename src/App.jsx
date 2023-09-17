@@ -1,5 +1,5 @@
-import MyTitle from "./components/MyTitle";
 import PokemonCard from "./components/PokemonCard";
+import MyTitle from "./components/MyTitle";
 
 const pokemonList = [
   {
@@ -14,6 +14,7 @@ const pokemonList = [
 
 function App() {
   const pokemon = pokemonList[0];
+
   return (
     <main>
       {/* container title */}
@@ -23,7 +24,7 @@ function App() {
 
       {/* container pokemon card */}
       <div>
-        <PokemonCard pokemonName={pokemon.name} pokemonImage={pokemon.imgSrc} />
+        <PokemonCard pokemon={pokemon} />
       </div>
     </main>
   );
