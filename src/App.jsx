@@ -31,23 +31,23 @@ const pokemonList = [
 ];
 
 function SwitchPokemon({ pokemonIndex, setPokemonIndex }) {
-  function handleClickNext() {
-    setPokemonIndex(pokemonIndex + 1);
-  }
-  function handleClickPrev() {
-    setPokemonIndex(pokemonIndex - 1);
-  }
+  // return a navbar component
+  const handlePokemonClick = (index) => {
+    setPokemonIndex(index);
+  };
+
   return (
     <NavBar
-      handleClickNext={handleClickNext}
-      handleClickPrev={handleClickPrev}
+      handlePokemonClick={handlePokemonClick}
       pokemonIndex={pokemonIndex}
+      setPokemonIndex={setPokemonIndex}
       pokemonList={pokemonList}
     />
   );
 }
 
 function App() {
+  // userState for getter/setter index pokemon list
   const [pokemonIndex, setPokemonIndex] = useState(0);
   const currentPokemon = pokemonList[pokemonIndex];
 
@@ -59,7 +59,7 @@ function App() {
   }, []);
 
   return (
-    <main>
+    <>
       {/* container title */}
       <div>
         <MyTitle />
@@ -70,13 +70,14 @@ function App() {
         <PokemonCard pokemon={currentPokemon} />
       </div>
 
+      {/* button for switch pokemon */}
       <div>
         <SwitchPokemon
           setPokemonIndex={setPokemonIndex}
           pokemonIndex={pokemonIndex}
         />
       </div>
-    </main>
+    </>
   );
 }
 
