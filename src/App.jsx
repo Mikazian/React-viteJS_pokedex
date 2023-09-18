@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PokemonCard from "./components/PokemonCard";
 import MyTitle from "./components/MyTitle";
+import NavBar from "./components/NavBar";
 
 const pokemonList = [
   {
@@ -28,17 +29,34 @@ const pokemonList = [
   },
 ];
 
+function SwitchPokemon({ pokemonIndex, setPokemonIndex }) {
+  function handleClickNext() {
+    setPokemonIndex(pokemonIndex + 1);
+  }
+  function handleClickPrev() {
+    setPokemonIndex(pokemonIndex - 1);
+  }
+  return (
+    <NavBar
+      handleClickNext={handleClickNext}
+      handleClickPrev={handleClickPrev}
+      pokemonIndex={pokemonIndex}
+      pokemonList={pokemonList}
+    />
+  );
+}
+
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
   const currentPokemon = pokemonList[pokemonIndex];
 
-  const handleClickNext = () => {
-    setPokemonIndex(pokemonIndex + 1);
-  };
+  // const handleClickNext = () => {
+  //   setPokemonIndex(pokemonIndex + 1);
+  // };
 
-  const handleClickPrev = () => {
-    setPokemonIndex(pokemonIndex - 1);
-  };
+  // const handleClickPrev = () => {
+  //   setPokemonIndex(pokemonIndex - 1);
+  // };
 
   return (
     <main>
@@ -52,19 +70,12 @@ function App() {
         <PokemonCard pokemon={currentPokemon} />
       </div>
 
-      {/* button previous for switch pokemon */}
-      {pokemonIndex > 0 ? (
-        <button onClick={handleClickPrev}>Précèdent</button>
-      ) : (
-        ""
-      )}
-
-      {/* button next for switch pokemon */}
-      {pokemonIndex < pokemonList.length - 1 ? (
-        <button onClick={handleClickNext}>Suivant</button>
-      ) : (
-        ""
-      )}
+      <div>
+        <SwitchPokemon
+          setPokemonIndex={setPokemonIndex}
+          pokemonIndex={pokemonIndex}
+        />
+      </div>
     </main>
   );
 }
