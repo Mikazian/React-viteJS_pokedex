@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import PokemonCard from "./components/PokemonCard";
 import MyTitle from "./components/MyTitle";
 import NavBar from "./components/NavBar";
@@ -50,13 +51,12 @@ function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
   const currentPokemon = pokemonList[pokemonIndex];
 
-  // const handleClickNext = () => {
-  //   setPokemonIndex(pokemonIndex + 1);
-  // };
-
-  // const handleClickPrev = () => {
-  //   setPokemonIndex(pokemonIndex - 1);
-  // };
+  // useEffect for display an alert
+  useEffect(() => {
+    if (pokemonIndex === 0) {
+      alert("Bonjour entraîneur de Pokémon !");
+    }
+  }, []);
 
   return (
     <main>
