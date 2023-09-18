@@ -1,30 +1,26 @@
 import React, { useEffect } from "react";
 
-function NavBar({
-  handleClickNext,
-  handleClickPrev,
-  pokemonIndex,
-  pokemonList,
-}) {
+function NavBar({ pokemonIndex, pokemonList, handlePokemonClick }) {
+  // Display an alert when the pokemon is Pikachu
   useEffect(() => {
     if (pokemonIndex === 3) {
-      console.log("HELLO PIKACHU", pokemonIndex);
       alert("Pika Pikachuu !");
     }
   });
 
+  // Button who display the pokemon's name with a button
+  function PokemonBtn({ pokemon, index }) {
+    return (
+      <button onClick={() => handlePokemonClick(index)}>{pokemon.name}</button>
+    );
+  }
+
   return (
     <>
-      {pokemonIndex > 0 ? (
-        <button onClick={handleClickPrev}>Précédent</button>
-      ) : (
-        ""
-      )}
-      {pokemonIndex < pokemonList.length - 1 ? (
-        <button onClick={handleClickNext}>Suivant</button>
-      ) : (
-        ""
-      )}
+      {/* Boucle in the pokemon list and display all pokemon */}
+      {pokemonList.map((pokemon, index) => (
+        <PokemonBtn key={index} pokemon={pokemon} index={index} />
+      ))}
     </>
   );
 }
